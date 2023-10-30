@@ -131,11 +131,14 @@ class WidgetFactory extends WidgetFactoryResetter with AnchorWidgetFactory {
       return children.first;
     }
 
-    return Column(
-      crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      textDirection: dir,
-      children: children,
+    return Semantics(
+      explicitChildNodes: true,
+      child: Column(
+        crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        textDirection: dir,
+        children: children,
+      ),
     );
   }
 
